@@ -19,7 +19,17 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-plugin-bem-import": "^1.4.2",
+    "jest-cli": "^22.0.6"
+  },
+  "jest": {
+    "transform": {
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/node_modules/react-scripts/config/jest/fileTransform.js",
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest"
+    }
   }
 }

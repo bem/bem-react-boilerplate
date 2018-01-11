@@ -1,0 +1,12 @@
+{
+    "presets": [
+        ["es2015", { "loose": true }],
+        "react"
+    ],
+    "plugins": [
+        "transform-object-rest-spread",
+        ["bem-import", {
+            "techs": ["js"]
+        }]
+    ]
+}
