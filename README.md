@@ -9,8 +9,11 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ```sh
 git clone git@github.com:bem/bem-react-boilerplate.git my-app
+cd my-app
 rm -rf .git
 git init
+npm i
+npm start
 ```
 
 ## Table of Contents
