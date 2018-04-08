@@ -6,6 +6,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "bem-react-components": "0.0.2",
     "bem-react-core": "^1.0.0-rc.6",
     "bem-tools-core": "0.0.3",
     "bem-tools-create": "^2.2.0",
