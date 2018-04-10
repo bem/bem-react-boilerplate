@@ -1,20 +1,38 @@
 module.exports = {
-    levels: {
-        'src/blocks': { scheme: 'nested' }
+  levels: [
+    {
+      layer: 'common',
+      path: 'src/blocks',
+      scheme: 'nested'
     },
-    modules: {
-        'bem-tools': {
-            plugins: {
-                create: {
-                    levels: {
-                        'src/blocks': { default: true }
-                    },
-                    techs: ['js', 'css'],
-                    templates: {
-                        js: '.bem/templates/js.js'
-                    }
-                }
-            }
-        }
+    {
+      layer: 'desktop',
+      path: 'src/desktop',
+      scheme: 'nested'
+    },
+    {
+      layer: 'touch',
+      path: 'src/touch',
+      scheme: 'nested'
     }
+  ],
+  sets: {
+    desktop: 'common desktop',
+    touch: 'common touch'
+  },
+  modules: {
+    'bem-tools': {
+      plugins: {
+        create: {
+          levels: {
+            'src/blocks': { default: true }
+          },
+          techs: ['js', 'css'],
+          templates: {
+            js: '.bem/templates/js.js'
+          }
+        }
+      }
+    }
+  }
 }
