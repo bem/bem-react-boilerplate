@@ -1,26 +1,13 @@
+const rewirePlatformBundles = require('./tools/rewirePlatformBundles');
+
 module.exports = function override(config, env) {
-  // Add bem-loader in Babel scope
-  const babelLoader = config.module.rules[1].oneOf[1];
+  // use any rewires here ;-) You are welcome!
 
-  config.module.rules[1].oneOf[1] = {
-    test: babelLoader.test,
-    include: babelLoader.include,
-    use: [
-      {
-        loader: require.resolve('webpack-bem-loader'),
-        options: {
-          techs: ['js', 'css']
-        }
-      },
-      {
-        loader: babelLoader.loader,
-        options: Object.assign({}, babelLoader.options, {
-          presets: [['es2015', { loose: true }], 'react'],
-          plugins: ['transform-object-rest-spread']
-        })
-      }
-    ]
-  };
-
-  return config;
+  // TODO:
+  // 1. Do we need support env? Now it works fine in DEV and PROD
+  // 2. Change current platform by process.env.PLATFORM
+  return rewirePlatformBundles({
+    techs: ['js', 'css'],
+    platforms: ['desktop', 'touch']
+  })(config, env);
 }
