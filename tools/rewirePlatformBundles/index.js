@@ -1,7 +1,7 @@
 // FIXME: move out to npm package
-
 const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const bemConfig = require('@bem/sdk.config')();
 
 // Please don't use this hack in real life ;-)
@@ -48,12 +48,15 @@ function createRewire(options) {
     levels: bemConfig.levelsSync(name),
     static: {
       js: statPath(name, 'js'),
-      css: statPath(name, 'css')
+      css: statPath(name, 'css'),
+      html: `${name}.html`
     }
   }));
 
   return function rewirePlatformBundles(config, env) {
-    const isNotExtPlugin = plugin => !(plugin instanceof ExtractTextPlugin);
+    const pluginsToRewrite = plugin =>
+      !(plugin instanceof ExtractTextPlugin) &&
+      !(plugin instanceof HtmlWebpackPlugin);
 
     const configsByPlatform = bundles.map(bundle => {
       const platformConfig = merge.strategy({
@@ -62,11 +65,28 @@ function createRewire(options) {
         output: {
           filename: bundle.static.js
         },
-        plugins: [].concat(config.plugins.filter(isNotExtPlugin), [
+        plugins: [].concat([
+          new HtmlWebpackPlugin({
+            inject: true,
+            template: 'public/index.html',
+            filename: bundle.static.html,
+            minify: {
+              removeComments: true,
+              collapseWhitespace: true,
+              removeRedundantAttributes: true,
+              useShortDoctype: true,
+              removeEmptyAttributes: true,
+              removeStyleLinkTypeAttributes: true,
+              keepClosingSlash: true,
+              minifyJS: true,
+              minifyCSS: true,
+              minifyURLs: true,
+            },
+          }),
           new ExtractTextPlugin({
             filename: bundle.static.css
           })
-        ])
+        ], config.plugins.filter(pluginsToRewrite))
       });
 
       return injectBemLoader(platformConfig, Object.assign({}, options, {
