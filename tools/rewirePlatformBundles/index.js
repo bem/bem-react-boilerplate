@@ -43,18 +43,34 @@ const convertLevels = levels => levels.reduce((acc, level) => {
 }, {})
 
 function createRewire(options) {
-  const platforms = process.env.PLATFORM ? [process.env.PLATFORM] : options.platforms;
-  const bundles = platforms.map(name => ({
-    name,
-    levels: bemConfig.levelsSync(name),
-    static: {
-      js: statPath(name, 'js'),
-      css: statPath(name, 'css'),
-      html: `${name}.html`
-    }
-  }));
+  const resolvedConfig = bemConfig.getSync();
+  let platforms;
+
+  if (resolvedConfig.sets) {
+    platforms = Object.keys(resolvedConfig.sets);
+  }
+
+  if(process.env.PLATFORM) {
+    platforms = [process.env.PLATFORM];
+  }
 
   return function rewirePlatformBundles(config, env) {
+    if (!platforms) {
+      return injectBemLoader(config, Object.assign({}, options, {
+        levels: bemConfig.levelMapSync()
+      }));
+    }
+
+    const bundles = platforms.map(name => ({
+      name,
+      levels: bemConfig.levelsSync(name),
+      static: {
+        js: statPath(name, 'js'),
+        css: statPath(name, 'css'),
+        html: `${name}.html`
+      }
+    }));
+
     const pluginsToRewrite = plugin =>
       !(plugin instanceof ExtractTextPlugin) &&
       !(plugin instanceof HtmlWebpackPlugin);
