@@ -16,6 +16,7 @@ module.exports = {
       scheme: 'nested'
     }
   ],
+  // remove sets to build one universal bundle for index.html
   sets: {
     desktop: 'common desktop',
     touch: 'common touch'
