@@ -43,7 +43,8 @@ const convertLevels = levels => levels.reduce((acc, level) => {
 }, {})
 
 function createRewire(options) {
-  const bundles = options.platforms.map(name => ({
+  const platforms = process.env.PLATFORM ? [process.env.PLATFORM] : options.platforms;
+  const bundles = platforms.map(name => ({
     name,
     levels: bemConfig.levelsSync(name),
     static: {
