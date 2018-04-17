@@ -8,7 +8,7 @@
     "babel-preset-react": "6.24.1",
     "bem-react-core": "1.0.0-rc.10",
     "bem-tools-core": "0.0.3",
-    "bem-tools-create": "2.2.0",
+    "bem-tools-create": "2.3.0",
     "eslint": "4.4.1",
     "react": "16.3.1",
     "react-app-rewired": "1.5.0",
