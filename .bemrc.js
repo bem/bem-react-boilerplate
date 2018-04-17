@@ -2,20 +2,21 @@ module.exports = {
   levels: [
     {
       layer: 'common',
-      path: 'src/blocks',
-      scheme: 'nested'
+      path: 'src/blocks'
     },
     {
       layer: 'desktop',
-      path: 'src/desktop',
-      scheme: 'nested'
+      path: 'src/desktop'
     },
     {
       layer: 'touch',
-      path: 'src/touch',
-      scheme: 'nested'
+      path: 'src/touch'
     }
-  ],
+  ].map(level => Object.assign({
+    schemeOptions : 'react',
+    naming : 'react',
+    scheme: 'nested' }, level)
+  ),
   // remove sets to build one universal bundle for index.html
   sets: {
     desktop: 'common desktop',
