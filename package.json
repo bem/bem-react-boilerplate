@@ -6,7 +6,6 @@
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-preset-es2015": "6.24.1",
     "babel-preset-react": "6.24.1",
-    "bem-react-core": "1.0.0-rc.10",
     "bem-tools-core": "0.0.3",
     "bem-tools-create": "2.3.0",
     "eslint": "4.4.1",
@@ -22,9 +21,18 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "@types/react": "^16.3.12",
+    "@types/react-dom": "^16.0.5",
     "babel-plugin-bem-import": "1.5.3",
+    "bem-react-core": "^2.0.0-alfa.2",
     "jest-cli": "22.4.3",
-    "rewire-bem-sets": "1.0.1"
+    "react-app-rewire-typescript": "^2.0.2",
+    "rewire-bem-sets": "1.0.1",
+    "ts-jest": "^22.4.4",
+    "tslint": "^5.9.1",
+    "tslint-react": "^3.5.1",
+    "typescript": "^2.8.3"
   },
   "jest": {
     "transform": {
