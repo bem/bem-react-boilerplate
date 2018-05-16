@@ -3,8 +3,9 @@ import * as React from 'react';
 import { Fragment } from 'react';
 
 import '../Logo/App-Logo.css';
-import logoSvg from '../Logo/App-Logo.svg';
 import './App-Header.css';
+
+const logoSvg = require('../Logo/App-Logo.svg');
 
 export interface IElemProps {
   title: string;
