@@ -29,9 +29,9 @@ module.exports = {
           levels: {
             'src/blocks': { default: true }
           },
-          techs: ['js', 'css'],
+          techs: ['tsx', 'css'],
           templates: {
-            js: '.bem/templates/js.js'
+            tsx: '.bem/templates/tsx.js'
           }
         }
       }

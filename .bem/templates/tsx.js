@@ -4,32 +4,32 @@ function capitalize(str) {
 
 module.exports = function ({ block, elem, mod={} }) {
   const { name: modName, val: modVal } = mod;
-  if (!modName) return `import { Block } from 'bem-react-core';
+  const entityClass = elem ? 'Elem' : 'Block';
+
+  if (!modName) return `import { ${entityClass} } from 'bem-react-core';
 import * as React from 'react';
 import { Fragment } from 'react';
-
-import './${block}.css';
-
-export default class ${block} extends Block {
+${elem ? '' : `\nimport './${block}.css';\n`}
+export default class ${block}${elem ? `${elem}` : ''} extends ${entityClass} {
   protected block = '${block}';
-
+${elem ? `  protected elem = '${elem}';\n` : ''}
   protected content() {
     return (
       <Fragment>
       </Fragment>
     );
   }
-};
+}
 `;
 
-  return `import ${block} from '../Example';
+  return `import ${block} from '../${block}';
 
 export interface I${block}${capitalize(modName)}Props {
   ${modName}?: ${typeof modVal};
 }
 
 export default () => class ${block}${capitalize(modName)} extends ${block}<I${block}${capitalize(modName)}Props> {
-  public static mod = { ${modName}: ${modVal} };
-};
+  public static mod = ({ ${modName} }: I${block}${capitalize(modName)}Props) => ${modName} === ${modVal};
+}
 `;
 };
