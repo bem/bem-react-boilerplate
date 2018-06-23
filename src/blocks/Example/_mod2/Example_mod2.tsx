@@ -5,7 +5,7 @@ export interface IExampleMod2Props {
 }
 
 export default () => class ExampleMod2 extends Example<IExampleMod2Props> {
-  public static mod = { mod2: true };
+  public static mod = ({ mod2 }: IExampleMod2Props) => mod2 === true;
 
   protected content() {
     return super.content() + ' with mod2';

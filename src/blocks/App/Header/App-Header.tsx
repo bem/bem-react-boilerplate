@@ -1,4 +1,4 @@
-import { Bem, Elem, Tag } from 'bem-react-core';
+import { Bem, Elem } from 'bem-react-core';
 import * as React from 'react';
 import { Fragment } from 'react';
 
@@ -15,7 +15,7 @@ export default class AppHeader extends Elem<IElemProps, {/* state */}> {
   protected block = 'App';
   protected elem = 'Header';
 
-  protected tag(): Tag {
+  protected tag() {
     return 'header';
   }
 
