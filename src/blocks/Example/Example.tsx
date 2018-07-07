@@ -1,9 +1,9 @@
 import { Block } from 'bem-react-core';
 
 export default class Example<P> extends Block<P, {}> {
-  protected block = 'Example';
+  public block = 'Example';
 
-  protected content() {
+  public content() {
     return 'content';
   }
 }

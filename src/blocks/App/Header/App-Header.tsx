@@ -12,18 +12,18 @@ export interface IElemProps {
 }
 
 export default class AppHeader extends Elem<IElemProps, {/* state */}> {
-  protected block = 'App';
-  protected elem = 'Header';
+  public block = 'App';
+  public elem = 'Header';
 
-  protected tag() {
+  public tag() {
     return 'header';
   }
 
-  protected content() {
+  public content() {
     return (
       <Fragment>
-        <Bem elem="Logo" tag="img" src={logoSvg} alt="logo"/>
-        <Bem elem="Title" tag="h1">{this.props.title}</Bem>
+        <Bem block="App" elem="Logo" tag="img" src={logoSvg} alt="logo"/>
+        <Bem block="App" elem="Title" tag="h1">{this.props.title}</Bem>
       </Fragment>
     );
   }
