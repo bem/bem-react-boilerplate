@@ -20,7 +20,7 @@ export interface IAppState {
 const ExampleWithMods = withMods(Example, mod1, mod2);
 
 export default class App extends Block<IAppProps, IAppState> {
-  protected block = 'App';
+  public block = 'App';
 
   constructor(props: IAppProps) {
     super(props);
@@ -34,13 +34,13 @@ export default class App extends Block<IAppProps, IAppState> {
     this.setState({ title: 'Welcome to BEM in the TypeScript world' });
   }
 
-  protected content() {
+  public content() {
     return (
       <Fragment>
         <Header title={this.state.title}/>
         <ExampleWithMods mod1 />
         <ExampleWithMods mod2 />
-        <Bem elem="Intro">
+        <Bem block="App" elem="Intro">
           To get started, edit <code>{this.props.path}</code> and save to reload.
         </Bem>
       </Fragment>
