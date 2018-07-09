@@ -10,4 +10,4 @@ export default class ExampleMod2 extends Example<IExampleMod2Props> {
   public content() {
     return super.content() + ' with mod2';
   }
-};
+}

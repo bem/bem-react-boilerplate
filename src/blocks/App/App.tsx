@@ -39,7 +39,7 @@ export default class App extends Block<IAppProps, IAppState> {
       <Fragment>
         <Header title={this.state.title}/>
         <ExampleWithMods mod1 />
-        <ExampleWithMods mod2 />
+        <ExampleWithMods mod1 mod2 />
         <Bem block="App" elem="Intro">
           To get started, edit <code>{this.props.path}</code> and save to reload.
         </Bem>

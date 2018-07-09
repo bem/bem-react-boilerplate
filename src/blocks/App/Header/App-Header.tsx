@@ -11,7 +11,7 @@ export interface IElemProps {
   title: string;
 }
 
-export default class AppHeader extends Elem<IElemProps, {/* state */}> {
+export default class AppHeader extends Elem<IElemProps> {
   public block = 'App';
   public elem = 'Header';
 
