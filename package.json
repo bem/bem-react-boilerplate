@@ -3,17 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-plugin-transform-object-rest-spread": "6.26.0",
-    "babel-preset-es2015": "6.24.1",
-    "babel-preset-react": "6.24.1",
-    "bem-react-core": "1.0.0-rc.10",
     "bem-tools-core": "0.0.3",
     "bem-tools-create": "2.3.0",
-    "eslint": "4.4.1",
-    "react": "16.3.1",
-    "react-app-rewired": "1.5.0",
-    "react-dom": "16.3.1",
-    "react-scripts": "1.0.17"
+    "react": "16.4.1",
+    "react-app-rewired": "1.5.2",
+    "react-dom": "16.4.1",
+    "react-scripts": "1.1.4"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -22,9 +17,16 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "babel-plugin-bem-import": "1.5.3",
-    "jest-cli": "22.4.3",
-    "rewire-bem-sets": "1.0.1"
+    "@types/jest": "^23.1.4",
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
+    "bem-react-core": "^2.0.0",
+    "jest-cli": "23.3.0",
+    "react-app-rewire-typescript": "^2.0.2",
+    "ts-jest": "^23.0.0",
+    "tslint": "^5.10.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^2.9.2"
   },
   "jest": {
     "transform": {

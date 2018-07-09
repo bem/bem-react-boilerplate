@@ -13,8 +13,8 @@ module.exports = {
       path: 'src/touch'
     }
   ].map(level => Object.assign({
-    schemeOptions : 'react',
-    naming : 'react',
+    schemeOptions: 'react',
+    naming: 'react',
     scheme: 'nested' }, level)
   ),
   // remove sets to build one universal bundle for index.html
@@ -29,9 +29,9 @@ module.exports = {
           levels: {
             'src/blocks': { default: true }
           },
-          techs: ['js', 'css'],
+          techs: ['tsx', 'css'],
           templates: {
-            js: '.bem/templates/js.js'
+            tsx: '.bem/templates/tsx.js'
           }
         }
       }
