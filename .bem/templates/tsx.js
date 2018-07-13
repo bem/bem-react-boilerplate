@@ -28,7 +28,7 @@ export interface I${block}${capitalize(modName)}Props {
   ${modName}?: ${typeof modVal};
 }
 
-export default () => class ${block}${capitalize(modName)} extends ${block}<I${block}${capitalize(modName)}Props> {
+export default class ${block}${capitalize(modName)} extends ${block}<I${block}${capitalize(modName)}Props> {
   public static mod = ({ ${modName} }: I${block}${capitalize(modName)}Props) => ${modName} === ${modVal};
 }
 `;
