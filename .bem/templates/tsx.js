@@ -4,7 +4,6 @@ function capitalize(str) {
 
 const blockTmpl = (block) =>
 `import * as React from 'react';
-import { Fragment } from 'react';
 import { Block } from 'bem-react-core';
 
 import './${block}.css';
@@ -14,12 +13,12 @@ export interface I${block}Props {
 }
 
 export class ${block} extends Block<I${block}Props> {
-  block = '${block}';
+  public block = '${block}';
 
-  content() {
+  public content() {
     return (
-      <Fragment>
-      </Fragment>
+      <>
+      </>
     );
   }
 }
@@ -27,17 +26,16 @@ export class ${block} extends Block<I${block}Props> {
 
 const elemTmpl = (block, elem) =>
 `import * as React from 'react';
-import { Fragment } from 'react';
 import { Elem } from 'bem-react-core';
 
 export class ${elem} extends Elem {
-  block = '${block}';
-  elem = '${elem}';
+  public block = '${block}';
+  public elem = '${elem}';
 
-  content() {
+  public content() {
     return (
-      <Fragment>
-      </Fragment>
+      <>
+      </>
     );
   }
 }
@@ -53,7 +51,7 @@ export interface I${block}${capitalize(modName)}Props extends I${block}Props {
 }
 
 export class ${block}${capitalize(modName)}${capitalize(modVal)} extends ${block} {
-  static mod = ({ ${modName} }: I${block}${capitalize(modName)}Props) => ${modName} === '${modVal}';
+  public static mod = ({ ${modName} }: I${block}${capitalize(modName)}Props) => ${modName} === '${modVal}';
 }
 `;
 }
