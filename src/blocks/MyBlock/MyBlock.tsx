@@ -15,7 +15,7 @@ export class MyBlock<P extends IMyBlockProps = IMyBlockProps> extends Block<P> {
 
   public attrs() {
     return {
-      blah: 'ololo'
+      id: this.props.blah
     };
   }
 }

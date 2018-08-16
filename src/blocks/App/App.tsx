@@ -25,7 +25,7 @@ export interface IAppState {
 
 // const ExampleWithMods = withMods(Example, mod1, mod2);
 
-import {MyBlock} from '../MyBlock/MyBlock';
+import {MyBlock as B} from '../MyBlock/MyBlock';
 
 export class App extends Block<IAppProps, IAppState> {
   public block = 'App';
@@ -49,7 +49,7 @@ export class App extends Block<IAppProps, IAppState> {
   }
 
   protected dependencies() {
-    return {MyBlock};
+    return {MyBlock: B};
   }
 
   // protected abstract dependencies(): IAppDeps;

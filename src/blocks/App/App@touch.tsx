@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { App as Common } from './App';
-import { MyBlock } from '../MyBlock/MyBlock@touch';
+import { MyBlock as B } from '../MyBlock/MyBlock@touch';
 
 export class App extends Common {
   public content() {
@@ -10,6 +10,6 @@ export class App extends Common {
   }
 
   protected dependencies() {
-    return { MyBlock };
+    return { MyBlock: B };
   }
 }
