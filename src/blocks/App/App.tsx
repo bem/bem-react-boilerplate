@@ -1,5 +1,5 @@
 import { Block } from 'bem-react-core';
-// import * as React from 'react';
+import * as React from 'react';
 // import { Fragment } from 'react';
 
 // import mod1 from '../Example/_mod1/Example_mod1';
@@ -25,7 +25,9 @@ export interface IAppState {
 
 // const ExampleWithMods = withMods(Example, mod1, mod2);
 
-export abstract class App extends Block<IAppProps, IAppState> {
+import {MyBlock} from '../MyBlock/MyBlock';
+
+export class App extends Block<IAppProps, IAppState> {
   public block = 'App';
 
   constructor(props: IAppProps) {
@@ -38,6 +40,16 @@ export abstract class App extends Block<IAppProps, IAppState> {
 
   public componentDidMount() {
     this.setState({ title: 'Welcome to BEM in the TypeScript world' });
+  }
+
+  public content() {
+    const {MyBlock} = this.dependencies();
+
+    return (<MyBlock/>);
+  }
+
+  protected dependencies() {
+    return {MyBlock};
   }
 
   // protected abstract dependencies(): IAppDeps;
