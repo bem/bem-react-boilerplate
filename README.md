@@ -1,5 +1,7 @@
 # BEM React Boilerplate
 
+**WARNING**! The project is **DEPRECATED**! As there's no need in special boilerplate to work with `bem-react`. Feel free to use any boilerplate you like (e.g. [official Create React App](https://github.com/facebookincubator/create-react-app)).
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and [React App Rewired](https://github.com/timarney/react-app-rewired).
 
 Below you will find some information on how to perform common tasks.<br>
