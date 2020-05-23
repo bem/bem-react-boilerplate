@@ -8,7 +8,7 @@
     "react": "16.4.1",
     "react-app-rewired": "1.5.2",
     "react-dom": "16.4.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "next"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -22,7 +22,7 @@
     "@types/react-dom": "^16.0.6",
     "bem-react-core": "^2.0.0",
     "jest-cli": "23.3.0",
-    "react-app-rewire-typescript": "^2.0.2",
+    "react-app-rewire-typescript": "tadatuta/react-app-rewire-typescript#master",
     "ts-jest": "^23.0.0",
     "tslint": "^5.10.0",
     "tslint-react": "^3.6.0",
@@ -33,5 +33,17 @@
       "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/node_modules/react-scripts/config/jest/fileTransform.js",
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest"
     }
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">0.25%",
+      "not op_mini all",
+      "ie 11"
+    ]
   }
 }
